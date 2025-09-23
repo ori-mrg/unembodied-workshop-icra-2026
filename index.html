@@ -213,7 +213,17 @@
             border-color: #a80c3120;
         }
 
-        .speaker-photo {
+        .speaker-photo, .organizer-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(168, 12, 49, 0.3);
+            position: relative;
+        }
+
+        .speaker-photo-tbd {
             width: 100px;
             height: 100px;
             border-radius: 50%;
@@ -226,6 +236,38 @@
             font-size: 2.5em;
             font-weight: bold;
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .organizer-photo {
+            width: 80px;
+            height: 80px;
+        }
+
+        /* For actual photos */
+        .speaker-photo img, .organizer-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .speaker-photo img:hover, .organizer-photo img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Fallback placeholder style (when no image is available) */
+        .speaker-photo.placeholder, .organizer-photo.placeholder {
+            background: linear-gradient(135deg, #a80c31, #a8112e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        .organizer-photo.placeholder {
+            font-size: 1.8em;
         }
 
         .speaker-name {
@@ -548,21 +590,21 @@
             <h2>Invited Speakers</h2>
             <div class="speakers-grid">
                 <div class="speaker-card">
-                    <div class="speaker-photo">MF</div>
+                    <div class="speaker-photo"><img src="images/michaelfisher.jpg" alt="Michael Fisher"></div>
                     <div class="speaker-name">Michael Fisher</div>
                     <div class="speaker-affiliation">University of Manchester</div>
                     <div class="confirmed-badge">Confirmed</div>
                 </div>
 
                 <div class="speaker-card">
-                    <div class="speaker-photo">AH</div>
+                    <div class="speaker-photo"><img src="images/annehak.png" alt="Anne Håkansson"></div>
                     <div class="speaker-name">Anne Håkansson</div>
                     <div class="speaker-affiliation">KTH Royal Institute of Technology</div>
                     <div class="confirmed-badge">Confirmed</div>
                 </div>
 
                 <div class="speaker-card">
-                    <div class="speaker-photo">AS</div>
+                    <div class="speaker-photo"><img src="images/saffiotti.jpg" alt="Alessandro Saffiotti"></div>
                     <div class="speaker-name">Alessandro Saffiotti</div>
                     <div class="speaker-affiliation">Örebro University</div>
                     <div class="speaker-talk">"The robot's extended mind"</div>
@@ -570,7 +612,7 @@
                 </div>
 
                 <div class="speaker-card">
-                    <div class="speaker-photo">SA</div>
+                    <div class="speaker-photo"><img src="images/Sara-Ayoubi.webp" alt="Sara Ayoubi"></div>
                     <div class="speaker-name">Sara Ayoubi</div>
                     <div class="speaker-affiliation">Nokia Bell Labs</div>
                     <div class="speaker-talk">"Communication in Robotics"</div>
@@ -578,7 +620,7 @@
                 </div>
 
                 <div class="speaker-card">
-                    <div class="speaker-photo">AP</div>
+                    <div class="speaker-photo"><img src="images/apf.jpg" alt="Antonis Papachristodoulou"></div>
                     <div class="speaker-name">Antonis Papachristodoulou</div>
                     <div class="speaker-affiliation">University of Oxford</div>
                     <div class="speaker-talk">"Safe distributed control"</div>
@@ -586,14 +628,14 @@
                 </div>
 
                 <div class="speaker-card">
-                    <div class="speaker-photo">?</div>
+                    <div class="speaker-photo-tbd">?</div>
                     <div class="speaker-name">Speaker TBA</div>
                     <div class="speaker-affiliation">To be announced</div>
                     <div class="tba-badge">Pending</div>
                 </div>
 
                 <div class="speaker-card">
-                    <div class="speaker-photo">?</div>
+                    <div class="speaker-photo-tbd">?</div>
                     <div class="speaker-name">Speaker TBA</div>
                     <div class="speaker-affiliation">To be announced</div>
                     <div class="tba-badge">Pending</div>
@@ -675,16 +717,20 @@
                         <td>Invited Talk</td>
                         <td>TBA</td>
                     </tr>
+                    <tr>
+                        <td class="time-slot">16:45-16:55</td>
+                        <td>Awards Announcement</td>
+                        <td>Best Pitch & Best Poster</td>
+                        <td>-</td>
+                    </tr>
                     <tr class="panel-row">
-                        <td class="time-slot">15:50-16:45</td>
+                        <td class="time-slot">16:00-16:50</td>
                         <td>Panel Discussion</td>
                         <td>Expert Panel</td>
                     </tr>
                     <tr>
-                        <td class="time-slot">16:45-17:00</td>
+                        <td class="time-slot">16:50-17:00</td>
                         <td>Closing Remarks</td>
-                        <td>Awards Announcement</td>
-                        <td>Best Pitch & Best Poster</td>
                         <td>-</td>
                     </tr>
                 </tbody>
@@ -735,7 +781,9 @@
             <h2>Organizers</h2>
             <div class="organizers-grid">
                 <div class="organizer-card">
-                    <div class="organizer-photo">DD</div>
+                    <div class="organizer-photo">
+                        <img src="images/daniele.jpg" alt="Daniele De Martini">
+                    </div>
                     <div class="organizer-name">
                         Daniele De Martini
                     </div>
@@ -747,7 +795,9 @@
                 </div>
 
                 <div class="organizer-card">
-                    <div class="organizer-photo">PZ</div>
+                    <div class="organizer-photo">
+                        <img src="images/philip.webp" alt="Philip Zhao">
+                    </div>
                     <div class="organizer-name">Philip Zhao</div>
                     <div class="organizer-affiliation">University of Manchester</div>
                     <div class="organizer-links">
@@ -757,7 +807,9 @@
                 </div>
 
                 <div class="organizer-card">
-                    <div class="organizer-photo">PL</div>
+                    <div class="organizer-photo">
+                        <img src="images/py.jpg" alt="Pierre-Yves Lajoie">
+                    </div>
                     <div class="organizer-name">Pierre-Yves Lajoie</div>
                     <div class="organizer-affiliation">Polytechnique Montreal</div>
                     <div class="organizer-links">
@@ -767,7 +819,9 @@
                 </div>
 
                 <div class="organizer-card">
-                    <div class="organizer-photo">GA</div>
+                    <div class="organizer-photo">
+                        <img src="images/giuseppe.jpg" alt="Giuseppe Bruno Averta">
+                    </div>
                     <div class="organizer-name">Giuseppe Bruno Averta</div>
                     <div class="organizer-affiliation">Politecnico di Torino</div>
                     <div class="organizer-links">
